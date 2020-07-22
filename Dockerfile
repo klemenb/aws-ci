@@ -1,10 +1,8 @@
-FROM python:3-alpine3.11
+FROM python:3-alpine3.12
 
 LABEL maintainer="klemen.bratec@gmail.com"
 
 RUN apk add --no-cache bash curl groff git && \
-    curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
-    unzip awscli-bundle.zip && \
-    ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
-    rm awscli-bundle.zip && \
-    rm -rf awscli-bundle
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
